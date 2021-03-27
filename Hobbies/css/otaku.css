@@ -1,0 +1,61 @@
+*{
+    padding: 0;
+    margin: 0;
+    
+}
+.otaku-container{
+    background-image: url(https://www3.animeflv.net/assets/animeflv/img/bg.jpg);
+    text-align: center;
+    
+}
+.title-container{
+    background-color: rgba(81, 37, 161, 0.884);
+    color:white;
+    text-align: center;
+    padding: 4px;
+}
+nav{
+    padding: 10px;
+}
+
+.container{
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow:row wrap;
+    flex-flow: row wrap;
+}
+.columna1,
+.columna2,
+.columna3{
+    width: 100%;
+    padding-top: 28px;
+    padding-bottom: 25px;
+}
+@media (min-width: 600px) {
+  .columna1 {
+    width: 33%;
+    -webkit-order: 1;
+    order: 1;
+  }
+
+  .columna2 {
+    text-align: initial;
+    width: 33%;
+    -webkit-order: 2;
+    order: 2;
+  }
+
+  .columna3 {
+    width: 33%;
+    -webkit-order: 3;
+    order: 3;
+    }
+}
+h2{
+    text-align: center;
+}
+
+
+
+
+
