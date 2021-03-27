@@ -28,7 +28,7 @@ nav{
 .columna2,
 .columna3{
     width: 100%;
-    padding-top: 28px;
+    padding-top: 20px;
     padding-bottom: 25px;
 }
 @media (min-width: 600px) {
