@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.html">  
+    <link rel="stylesheet" href="css/index.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="head-container">
+        <h2>
+            <a href="index.html">Ejercicios JavaScript</a>
+        </h2>
+    </div>
+    <p>se hara el reparto anual de utilidades asignando un porcentaje de su salario 
+        dependiendo su antiguedad en la empresa, de acuerdo a la siguiente tabla
+    </p>
+    <table align="left">
+        <tr>
+            <th>Tiempo</th>
+            <th>Utilidad</th>
+        </tr>
+        <tr>
+            <td>Menos de un año (0)</td>
+            <td> 5% del salario</td>
+        </tr>
+        <tr>
+            <td>Un año o mas y menos de 2 años</td>
+            <td>7% del salario</td>
+        </tr>
+        <tr>
+            <td>Dos años o mas y menos de 5 años</td>
+            <td>10% del salario</td>
+        </tr>
+        <tr>
+            <td>Cinco años o mas y menos de 10 años</td>
+            <td>15% del salario</td>
+        </tr>
+        <tr>
+            <td>10 años o mas</td>
+            <td>20% del salario</td>
+        </tr>
+    </table>
+    <form method="POST" name="formulario">
+        <table align="center">
+            <tr>
+                <td class="td_sup">Introduce tu salario</td>
+                <td class="td_inf"><input type="text" name="sueldoB"
+                    onkeypress="return validarn(event)"></td>
+            </tr>
+            <tr>
+                <td class="td_sup">Introduce tu antiguedad</td>
+                <td class="td_inf"><input type="text" name="antiguedad"
+                    onkeypress="return validarn(event)"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="td_inf"><input type="button" value="enviar" onclick="CalcuUti()"></td>
+            </tr>
+            <tr>
+                <td>La ultilidad que le corresponde es de :</td>
+                <td><input type="text" name="cantidadi" readonly class="input_text"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="button" value="Borrar"
+                name="borrar" onclick="borrarI()"></td>
+            </tr>
+        </table>
+       
+
+    </form>
+     <br>
+     <a href="index.html">regresar a la pagina principal</a>
+</body>
+</html>

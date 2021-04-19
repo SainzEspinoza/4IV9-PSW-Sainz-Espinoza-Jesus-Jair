@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.html">  
+    <link rel="stylesheet" href="css/index.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="head-container">
+        <h2>
+            <a href="index.html">Ejercicios JavaScript</a>
+        </h2>
+    </div>
+    <p>determinar la cantidad de dinero que recibira un trabajador por concepto de
+        horas extras trabajadas en una empresa , sabiendo que cuando las horas de trabajo 
+        exceden de 40, el resto son consideradas horas extras, y que estas se pagan el
+        doble de una hora normal cuando no exceden de 8, si estas pasan de 8 se pagan
+        las primeras 8 al doble y el resto al triple
+    </p>
+    <form method="POST" name="formulario">
+        <table align="center">
+            <tr>
+                <td class="td_sup">Introduce la cantidad de horas trabajadas</td>
+                <td class="td_inf"><input type="text" name="ht"
+                    onkeypress="return validarn(event)"></td>
+            </tr>
+            <tr>
+                <td class="td_sup">Introduce el sueldo por hora</td>
+                <td class="td_inf"><input type="text" name="sueldoB"
+                    onkeypress="return validarn(event)"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="td_inf"><input type="button" value="enviar" onclick="CalcuEx()"></td>
+            </tr>
+            <tr>
+                <td>Su percepcion por horas extra es: </td>
+                <td><input type="text" name="final" readonly class="input_text"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="button" value="Borrar"
+                name="borrar" onclick="borrarI()"></td>
+            </tr>
+        </table>
+       
+
+    </form>
+     <br>
+     <a href="index.html">regresar a la pagina principal</a>
+</body>
+</html>

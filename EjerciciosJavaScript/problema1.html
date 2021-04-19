@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.html">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Problema 1</title>
+</head>
+<body>
+    <div class="head-container">
+        <h2>
+            <a href="index.html">Ejercicios JavaScript</a>
+        </h2>
+
+    </div>
+    <p>Diseñar una aplicacion web la cual pueda calcular el pago mensual de una inversion
+        al 2% para lo cual se debe diseñar un fomrulario
+        que haga dicho calculo.
+    </p>
+    <form method="POST" name="formulario">
+        <table align="center">
+            <tr>
+                <td class="td_sup">Introduce la cantidad a invertir: $</td>
+                <td class="td_inf"><input type="text" name="cantidad"
+                    onkeypress="return validarn(event)"></td>
+            </tr>
+            <tr>
+                <td class="td_sup">Seleccione los meses a invertir: </td>
+                <td class="td_inf"><input list="listameses" name="meseslista">
+
+                    <datalist id="listameses">
+                        <option value="1">
+                        <option value="2">
+                        <option value="3">
+                        <option value="4">
+                        <option value="5">
+                        <option value="6">
+                        <option value="7">
+                        <option value="8">
+                        <option value="9">
+                        <option value="10">
+                        <option value="11">
+                        <option value="12">  
+                    </datalist></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="td_inf"><input type="button" value="enviar" onclick="CalcuInteres()"></td>
+            </tr>
+            <tr>
+                <td>Su saldo total con interes al 2% es:</td>
+                <td><input type="text" name="cantidadi" readonly class="input_text"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="button" value="Borrar"
+                name="borrar" onclick="borrarI()"></td>
+            </tr>
+        </table>
+       
+
+    </form>
+     <br>
+     <a href="index.html">regresar a la pagina principal</a>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.html">  
+    <link rel="stylesheet" href="css/index.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="head-container">
+        <h2>
+            <a href="index.html">Ejercicios JavaScript</a>
+        </h2>
+    </div>
+    <p>hacer un programa que calcule la edad de una persona
+    </p>
+    <form method="POST" name="formulario">
+        <table align="center">
+            <tr>
+                <td class="td_sup">Introduzca su fecha de nacimiento:(YYYY-MM-dd) </td>
+                <td class="td_inf"><input type="text" name="fechaN"
+                    onkeypress="return validarF(event)"></td>
+            </tr>
+            <tr>
+                <td class="td_sup">Introduzca la fecha de hoy:(YYYY-MM-dd) </td>
+                <td class="td_inf"><input type="text" name="fechaH"
+                    onkeypress="return validarF(event)"></td>
+            </tr>
+            
+            <tr>
+                <td></td>
+                <td class="td_inf"><input type="button" value="calcular" onclick="Edad()"></td>
+            </tr>
+            <tr>
+                <td>Su edad es: </td>
+                <td><input type="text" name="edad" readonly class="input_text"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="button" value="Borrar"
+                name="borrar" onclick="borrarI()"></td>
+            </tr>
+        </table>
+       
+
+    </form>
+     <br>
+     <a href="index.html">regresar a la pagina principal</a>
+</body>
+</html>
