@@ -10,6 +10,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+//Esta se encarga del objeto para la conexion con la base de datos
+import java.sql.Connection;
+import java.sql.DriverManager;
+//Esta se encarga de poder realizar las sentencias SQl como son:
+//insert, delete, update, create, alter, drop
+import java.sql.Statement;
+//Esta se encarga para generar un objeto para poder realizar las consultas SQL
+import java.sql.ResultSet;
+import javax.servlet.ServletConfig;
 
 /**
  *
@@ -26,6 +35,44 @@ public class Registro extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    // Variables globales (objetos)
+    private Connection con;
+    private Statement set;
+    private ResultSet rs;
+    
+    //constructor
+    public void init(ServletConfig cfg) throws ServletException{
+        
+        //como se va a conectar a la base de datos
+        String url = "jdbc:mysql:3306//localhost/registro4iv9";
+                    //tipodriver:gestorBD:puerto//IP/nombrebd
+                    
+        String userName = "root";
+        String password = "Jesus.sainz1";
+       
+        try{
+            
+            Class.forName("com.mysql.jdbc.Driver");
+             /*
+            A veces el tipo de driver ya tiene incluido el puerto de comunicacion,
+            es por ello que nos arroja un error de conexion, para resolver este error,
+            simplemente hacemos lo siguiente:
+            url ="jdbc:mysql://localhost/registro4iv9";
+            */
+            url = "jdbc:mysql://localhost/registro4iv9";
+            con =DriverManager.getConnection(url, userName, password);
+            set = con.createStatement();
+        
+            System.out.println("Conexion exitosa");
+        
+        }catch(Exception e){
+            System.out.println("Conexion no exitosa");
+            System.out.println(e.getMessage());
+            System.out.println(e.getStackTrace());
+        }
+    }
+  
+    
     protected void processRequest(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
@@ -48,6 +95,29 @@ public class Registro extends HttpServlet {
             ipr = request.getRemoteAddr();
             puertor = request.getRemotePort();
             
+            //vamos a intentar registrar en la bd
+            try{
+            
+                /*
+                Para poder registrar un usuario es necesario la sentencia insert
+                bajo el siguiente esquema:
+                
+                insert into nombretabla (atributo1, atributo2, ....) values ("valor1", 'valor2', valor3)
+                
+                "" son para valores de tipo cadena
+                '' numerico
+                nada numerico   
+                */
+                
+                String q = "insert into mregistro "
+                        + "(nom_usu, appat_usu, apmat_usu, edad_usu, email_usu) "
+                        + "values "
+                        + "('"+nom+"', '"+appat+"', '"+apmat+"', "+edad+", '"+correo+"')";
+                
+                set.executeUpdate(q);
+                System.out.println("Registro exitoso en la tabla");
+            
+            
             
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -56,31 +126,52 @@ public class Registro extends HttpServlet {
             out.println("</head>");
             out.println("<body>"
                     + "<br>"
-                    + "Tu nombre es: "+ nom
+                    + "Tu nombre es: "+nom
                     + "<br>"
-                    + "Tu apellido paterno es: " + appat 
-                    + "<br>" 
-                    + "Tu apellido materno es: " + apmat
+                    + "Tu apellido paterno es: "+appat
                     + "<br>"
-                    + "Tu edad es: " + edad
+                    + "Tu apellido materno es: "+apmat
                     + "<br>"
-                    + "Tu Email es: " + correo
+                    + "Tu edad es: "+edad
                     + "<br>"
-                    + "IP Local: " + ip
+                    + "Tu email es: "+correo
                     + "<br>"
-                    + "Puerto Local: " + puerto  
+                    + "IP Local: "+ip
                     + "<br>"
-                    + "IP Remota: " + ipr
+                    + "Puerto Local: "+puerto
                     + "<br>"
-                    + "Puerto Remoto: " + puertor
+                    + "IP Remota: "+ipr
+                    + "<br>"
+                    + "Puerto Remoto: "+puertor
                     + "<br>");
-        
-        
-        
             out.println("<h1>Registro Exitoso</h1>"
-                    + "<a href='index.html'>Regresar al menú principal</a>");
+                    + "<a href='index.html' >Regresar al Menu Principal</a>"
+                    + "<br>"
+                    + "<a href='Consultar' >Consultar Tabla General de Usuarios</a>");
             out.println("</body>");
             out.println("</html>");
+            set.close();
+            
+            }catch(Exception e){
+                System.out.println("Error al registrar en la tabla");
+                System.out.println(e.getMessage());
+                System.out.println(e.getStackTrace());
+                
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet Registro</title>");            
+            out.println("</head>");
+            out.println("<body>"
+            + "<br>");
+            out.println("<h1>Registro No Exitoso, ocurrio un error</h1>"
+                    + "<a href='index.html' >Regresar al Menu Principal</a>"
+                    + "<br>"
+                    + "<a href='Consultar' >Consultar Tabla General de Usuarios</a>");
+            out.println("</body>");
+            out.println("</html>");
+                    
+            }
         }
     }
 
