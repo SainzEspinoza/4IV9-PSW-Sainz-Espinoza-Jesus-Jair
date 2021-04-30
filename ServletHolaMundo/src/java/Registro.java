@@ -209,6 +209,14 @@ public class Registro extends HttpServlet {
      *
      * @return a String containing servlet description
      */
+    
+    public void destroy(){
+        try{
+            con.close();
+        }catch(Exception e){
+            super.destroy();
+        }
+    }
     @Override
     public String getServletInfo() {
         return "Short description";

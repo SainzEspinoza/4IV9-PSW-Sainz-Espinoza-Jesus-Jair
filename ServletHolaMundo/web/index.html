@@ -39,6 +39,23 @@ and open the template in the editor.
                     <input type="reset" value="Borrar Datos">
                 </form>
             </div>
+            <div class="contenedorConsultar">
+                <br>
+                <form name="formularioConsultar" method="get" action="Consultar">
+                    <input type="submit" value="Consultar Tabla general de Usuarios">
+                </form>    
+            </div>
+                <br>
+            <div class="contenedorEliminar">
+                <br>
+                <form name="formularioEliminar" method="post" action="Eliminar">
+                    <label>Ingresa el ID del usuario a eliminar</label>
+                    <input type="text" name="ideliminar">
+                    <input type="submit" value="Eliminar Registro">
+                </form>
+            </div>
+                <br>
+            
         </div>
     </body>
 </html>
